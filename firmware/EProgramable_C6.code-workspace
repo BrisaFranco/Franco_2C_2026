@@ -20,6 +20,12 @@
         },
         {
             "path": "./projects/x_template"
+        },
+        {
+            "path": "projects/guia1_ejercicio2"
+        },
+        {
+            "path": "projects/Ejercicio3"
         }
     ],
     "settings": {
