@@ -61,12 +61,15 @@ void app_main(void){
 
     my_leds prueba;
     prueba.mode = TOGGLE;
-    prueba.n_led = 3;
+    prueba.n_led = 2;
     prueba.n_ciclos = 10;
-    prueba.n_periodos = 5;
+    prueba.n_periodos = 500;
 
+    prueba.n_periodos = 500 / 100;
     ControlLeds(&prueba);
 }
+
+
 
 /*==================[internal functions definition]==========================*/
 void ControlLeds(my_leds *ptr_led) { 
@@ -126,5 +129,6 @@ void toggle_led(uint8_t n) {
     else if (n == 2) LedToggle(LED_2);
     else if (n == 3) LedToggle(LED_3);
 }
+
 
 /*==================[end of file]============================================*/
