@@ -48,6 +48,13 @@ gpioConf_t vectorGPIO[4] =
     {GPIO_22, GPIO_OUTPUT},
     {GPIO_23, GPIO_OUTPUT}
 };
+
+gpioConf_t vectorSEL[3] =
+{
+    {GPIO_19, GPIO_OUTPUT},
+    {GPIO_18, GPIO_OUTPUT},
+    {GPIO_9, GPIO_OUTPUT}
+};
 /*==================[external functions definition]==========================*/
 int8_t convertToBcdArray(uint16_t data, uint8_t digits, uint8_t *bcd_number)
 {
@@ -74,20 +81,28 @@ void escribirGPIOdesdeBCD(uint8_t digitoBCD, gpioConf_t *vectorGPIO)
     }
 }
 
-void app_main(void)
+void mostrarNumero(uint16_t numero, uint8_t cantidadDigitos,
+                   gpioConf_t *vectorBCD, gpioConf_t *vectorSEL)
 {
-    uint16_t numero = 9;
-    uint8_t cantidadDigitos = 5;
-    uint8_t bcd_number[5];
+    uint8_t digitos[cantidadDigitos];
 
-    convertToBcdArray(numero, cantidadDigitos, bcd_number);
-    printf("BCD: ");
+    convertToBcdArray(numero, cantidadDigitos, &digitos[0]);
 
     for (int i = 0; i < cantidadDigitos; i++)
-	{
-    printf("bcd_number[%d] = %d\n", i, bcd_number[i]);
-	}
-	escribirGPIOdesdeBCD(bcd_number[0], vectorGPIO);
+    {
+        escribirGPIOdesdeBCD(digitos[i], vectorBCD);
+
+        GPIOState(vectorSEL[i].pin, 1);
+        GPIOState(vectorSEL[i].pin, 0);
+    }
+}
+
+void app_main(void)
+{
+    uint16_t numero = 123;
+    uint8_t cantidadDigitos = 3;
+
+    mostrarNumero(numero, cantidadDigitos, vectorGPIO, vectorSEL);
 }
 
 
