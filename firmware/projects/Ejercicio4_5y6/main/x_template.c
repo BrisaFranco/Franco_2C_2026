@@ -6,7 +6,7 @@
  *
  * @section changelog Historial de cambios
  *
- * @author Albano Peñalva (albano.penalva@uner.edu.ar)
+ * @author Brisa Franco (brisa.franco@ingenieria.uner.edu.ar)
  *
  */
 
