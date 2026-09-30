@@ -4,7 +4,7 @@
  *  - TECs: Lee los pulsadores TEC1 (medición) y TEC2 (hold).
  *  - ULTRASONIDO: Realiza mediciones de distancia de forma continua.
  *  - LedsyLcd: Maneja el encendido de LEDs según rango y la pantalla LCD.
- *  @author Brisa Franco
+ *  @author Brisa Franco 
  *  @date 2026
  */
 

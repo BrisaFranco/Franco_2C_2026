@@ -1,6 +1,20 @@
+/** @file act2_P2.c
+ *  @brief Proyecto Conversor Analógico-Digital (ADC) y Digital-Analógico (DAC) con FreeRTOS.
+ *  
+ *  Aplicación basada en FreeRTOS que realiza la digitalización de una señal analógica 
+ *  mediante ADC (canal CH1) a 500 Hz y transmite las muestras vía UART al PC. 
+ *  En paralelo, genera una señal de ECG sintética utilizando el conversor DAC a 250 Hz.
+ *  El control de tiempos de ambas tareas se realiza mediante temporizadores e interrupciones.
+ * 
+ *  @author Brisa Franco
+ *  @date 2026
+ */
+
+/*==================[inclusions]=============================================*/
 #include <stdio.h>
 #include <stdint.h>
-#include "stdbool.h"
+#include <stdbool.h>
+
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
@@ -9,16 +23,20 @@
 #include "uart_mcu.h"
 #include "timer_mcu.h"
 
-/* Definiciones de Constantes */
-#define FREC_ADC_US       2000     // 2000 us = 2 ms -> 500 Hz (Muestreo del ADC)
-#define FREC_DAC_US       4000     // 4000 us = 4 ms -> 250 Hz (Salida del ECG)
-#define UART_BAUD_RATE    115200   // Velocidad de transmisión serie
-#define BUFFER_SIZE       231 
+/*==================[macros and definitions]=================================*/
+#define FREC_ADC_US       2000     /* 2000 us = 2 ms -> 500 Hz (Muestreo del ADC) */
+#define FREC_DAC_US       4000     /* 4000 us = 4 ms -> 250 Hz (Salida del ECG) */
+#define UART_BAUD_RATE    115200   /* Velocidad de transmisión serie */
+#define BUFFER_SIZE       231      /* Tamaño del buffer con la señal de ECG */
 
 /*==================[internal data definition]===============================*/
-TaskHandle_t main_task_handle = NULL; // Manejador provisto por la cátedra para la tarea principal
+/** @brief Handle de la tarea FreeRTOS encargada del muestreo ADC y transmisión UART. */
+TaskHandle_t main_task_handle = NULL;
+
+/** @brief Handle de la tarea FreeRTOS encargada de la generación de la señal ECG en el DAC. */
 TaskHandle_t dac_task_handle = NULL;
 
+/** @brief Ecualización e información punto a punto de la señal ECG sintética (231 muestras). */
 const char ecg[BUFFER_SIZE] = {
     76, 77, 78, 77, 79, 86, 81, 76, 84, 93, 85, 80,
     89, 95, 89, 85, 93, 98, 94, 88, 98, 105, 96, 91,
@@ -39,38 +57,73 @@ const char ecg[BUFFER_SIZE] = {
     74, 67, 71, 78, 72, 67, 73, 81, 77, 71, 75, 84, 79, 77, 77, 76, 76,
 };
 
-/* --- Callbacks de Interrupción de los Timers --- */
-void FuncTimerADC(void *param) {
+/*==================[internal functions declaration]=========================*/
+/**
+ * @brief Función de callback invocada periódicamente por el Timer A (500 Hz).
+ *        Notifica a la tarea ADCTask para tomar una muestra analógica.
+ * @param param Puntero a parámetros del temporizador (no utilizado).
+ */
+void FuncTimerADC(void *param);
+
+/**
+ * @brief Función de callback invocada periódicamente por el Timer B (250 Hz).
+ *        Notifica a la tarea DACTask para reproducir el siguiente valor de la señal ECG.
+ * @param param Puntero a parámetros del temporizador (no utilizado).
+ */
+void FuncTimerDAC(void *param);
+
+/**
+ * @brief Tarea encargada de tomar los valores del array de ECG y escribirlos en la salida DAC.
+ * @param pvParameter Puntero a parámetros de la tarea (no utilizado).
+ */
+void DACTask(void *pvParameter);
+
+/**
+ * @brief Tarea encargada de leer el canal analógico CH1 y enviar el valor formateado por UART.
+ * @param pvParameter Puntero a parámetros de la tarea (no utilizado).
+ */
+void ADCTask(void *pvParameter);
+
+/*==================[ISRs / Callbacks]=======================================*/
+
+void FuncTimerADC(void *param)
+{
     // Notifica a la tarea principal (ADCTask)
     vTaskNotifyGiveFromISR(main_task_handle, NULL);
 }
 
-void FuncTimerDAC(void *param) {
+void FuncTimerDAC(void *param)
+{
     // Notifica a la tarea de reproducción del DAC
     vTaskNotifyGiveFromISR(dac_task_handle, NULL);
 }
 
-/* --- Tarea: Generación de Señal ECG en el DAC --- */
-void DACTask(void *pvParameter) {
+/*==================[tasks definition]======================================*/
+
+void DACTask(void *pvParameter)
+{
     uint8_t i = 0;
-    while (1) {
+    while (1)
+    {
         ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 
         AnalogOutputWrite((uint8_t)ecg[i]);
         
         i++;
-        if (i >= BUFFER_SIZE) {
+        if (i >= BUFFER_SIZE)
+        {
             i = 0;
         }
     }
 }
 
-/* --- Tarea Principal: Lectura de ADC y Transmisión Serie --- */
-void ADCTask(void *pvParameter) {
+void ADCTask(void *pvParameter)
+{
     uint16_t lectura_adc = 0;
     char msg_buffer[32];
 
-    while (1) {
+    while (1)
+    {
         ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 
         // Digitaliza la entrada analógica en CH1
@@ -82,8 +135,15 @@ void ADCTask(void *pvParameter) {
     }
 }
 
-/* --- Función Principal --- */
-void app_main(void) {
+/*==================[external functions definition]==========================*/
+
+/**
+ * @brief Función principal de la aplicación.
+ *        Configura e inicializa el puerto serie UART, la entrada ADC (CH1), la salida DAC
+ *        y los dos timers de control (Timer A y Timer B). Crea e inicia las tareas FreeRTOS.
+ */
+void app_main(void)
+{
     /* 1. Inicialización del puerto serie UART */
     serial_config_t uart_cfg = {
         .port = UART_PC,
@@ -122,7 +182,6 @@ void app_main(void) {
     TimerInit(&timer_dac);
 
     /* 6. Creación de Tareas FreeRTOS */
-    // Asignamos main_task_handle a la tarea principal de lectura/transmisión
     xTaskCreate(ADCTask, "ADCTask", 2048, NULL, 5, &main_task_handle);
     xTaskCreate(DACTask, "DACTask", 2048, NULL, 5, &dac_task_handle);
 

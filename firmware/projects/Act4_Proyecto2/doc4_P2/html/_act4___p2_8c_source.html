@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Actividad4_Proyecto2: Archivo de código fuente C:/REPOSITORIOS/Franco_2C_2026/firmware/projects/Act4_Proyecto2/main/Act4_P2.c</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', init_search);
+</script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Actividad4_Proyecto2<span id="projectnumber">&#160;1.0</span>
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_act4___p2_8c_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Act4_P2.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_act4___p2_8c.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">/*==================[inclusions]=============================================*/</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;freertos/FreeRTOS.h&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;freertos/task.h&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/* Drivers del microcontrolador */</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="analog__io__mcu_8h.html">analog_io_mcu.h</a>&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;<a class="code" href="uart__mcu_8h.html">uart_mcu.h</a>&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="timer__mcu_8h.html">timer_mcu.h</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/*==================[macros and definitions]=================================*/</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="_act4___p2_8c.html#aecc44f3ea24b6d6b40968853ec54b4fc">   27</a></span><span class="preprocessor">#define FREC_ADC_US       2000     </span><span class="comment">/* 2000 us = 2 ms -&gt; 500 Hz (Muestreo del ADC) */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="_act4___p2_8c.html#a49a2dc792284329b7411ac78f78fa037">   28</a></span><span class="preprocessor">#define FREC_DAC_US       4000     </span><span class="comment">/* 4000 us = 4 ms -&gt; 250 Hz (Salida del ECG) */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="_act4___p2_8c.html#a615aed21aa6825462b7c17b0c238ffe2">   29</a></span><span class="preprocessor">#define UART_BAUD_RATE    115200   </span><span class="comment">/* Velocidad de transmisión serie */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="_act4___p2_8c.html#a6b20d41d6252e9871430c242cb1a56e7">   30</a></span><span class="preprocessor">#define BUFFER_SIZE       231      </span><span class="comment">/* Tamaño del buffer con la señal de ECG */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">/*==================[internal data definition]===============================*/</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="_act4___p2_8c.html#a2c75b4f34726e9b7a8dd42ca7fa1d31d">   34</a></span>TaskHandle_t <a class="code hl_variable" href="_act4___p2_8c.html#a2c75b4f34726e9b7a8dd42ca7fa1d31d">main_task_handle</a> = NULL;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="_act4___p2_8c.html#a15ff38370c40572c575bc0a6a60c55ba">   37</a></span>TaskHandle_t <a class="code hl_variable" href="_act4___p2_8c.html#a15ff38370c40572c575bc0a6a60c55ba">dac_task_handle</a> = NULL;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="_act4___p2_8c.html#a2dafb8b8179af8e9f4cc4df3f588e42e">   40</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="_act4___p2_8c.html#a2dafb8b8179af8e9f4cc4df3f588e42e">ecg</a>[<a class="code hl_define" href="_act4___p2_8c.html#a6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a>] = {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    76, 77, 78, 77, 79, 86, 81, 76, 84, 93, 85, 80,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    89, 95, 89, 85, 93, 98, 94, 88, 98, 105, 96, 91,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    99, 105, 101, 96, 102, 106, 101, 96, 100, 107, 101,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    94, 100, 104, 100, 91, 99, 103, 98, 91, 96, 105, 95,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    88, 95, 100, 94, 85, 93, 99, 92, 84, 91, 96, 87, 80,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    83, 92, 86, 78, 84, 89, 79, 73, 81, 83, 78, 70, 80, 82,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    79, 69, 80, 82, 81, 70, 75, 81, 77, 74, 79, 83, 82, 72,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    80, 87, 79, 76, 85, 95, 87, 81, 88, 93, 88, 84, 87, 94,</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    86, 82, 85, 94, 85, 82, 85, 95, 86, 83, 92, 99, 91, 88,</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    94, 98, 95, 90, 97, 105, 104, 94, 98, 114, 117, 124, 144,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    180, 210, 236, 253, 227, 171, 99, 49, 34, 29, 43, 69, 89,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    89, 90, 98, 107, 104, 98, 104, 110, 102, 98, 103, 111, 101,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    94, 103, 108, 102, 95, 97, 106, 100, 92, 101, 103, 100, 94, 98,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    103, 96, 90, 98, 103, 97, 90, 99, 104, 95, 90, 99, 104, 100, 93,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    100, 106, 101, 93, 101, 105, 103, 96, 105, 112, 105, 99, 103, 108,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    99, 96, 102, 106, 99, 90, 92, 100, 87, 80, 82, 88, 77, 69, 75, 79,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    74, 67, 71, 78, 72, 67, 73, 81, 77, 71, 75, 84, 79, 77, 77, 76, 76,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>};</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">/*==================[internal functions declaration]=========================*/</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keywordtype">void</span> <a class="code hl_function" href="_act4___p2_8c.html#aab9f96832ce1f331bf95840580fec525">FuncTimerADC</a>(<span class="keywordtype">void</span> *param);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keywordtype">void</span> <a class="code hl_function" href="_act4___p2_8c.html#a7caa7a85a523254e54a49760a066d9d5">FuncTimerDAC</a>(<span class="keywordtype">void</span> *param);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keywordtype">void</span> <a class="code hl_function" href="_act4___p2_8c.html#afc7a5a7fda0baa1410265370316754f6">DACTask</a>(<span class="keywordtype">void</span> *pvParameter);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keywordtype">void</span> <a class="code hl_function" href="_act4___p2_8c.html#af8c9493f99ddec6ed1ebb2438817722a">ADCTask</a>(<span class="keywordtype">void</span> *pvParameter);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">/*==================[ISRs / Callbacks]=======================================*/</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="foldopen" id="foldopen00089" data-start="{" data-end="}">
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="_act4___p2_8c.html#aab9f96832ce1f331bf95840580fec525">   89</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_act4___p2_8c.html#aab9f96832ce1f331bf95840580fec525">FuncTimerADC</a>(<span class="keywordtype">void</span> *param)</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>{</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="comment">// Notifica a la tarea principal (ADCTask)</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    vTaskNotifyGiveFromISR(<a class="code hl_variable" href="_act4___p2_8c.html#a2c75b4f34726e9b7a8dd42ca7fa1d31d">main_task_handle</a>, NULL);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>}</div>
+</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="foldopen" id="foldopen00095" data-start="{" data-end="}">
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="_act4___p2_8c.html#a7caa7a85a523254e54a49760a066d9d5">   95</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_act4___p2_8c.html#a7caa7a85a523254e54a49760a066d9d5">FuncTimerDAC</a>(<span class="keywordtype">void</span> *param)</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>{</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="comment">// Notifica a la tarea de reproducción del DAC</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    vTaskNotifyGiveFromISR(<a class="code hl_variable" href="_act4___p2_8c.html#a15ff38370c40572c575bc0a6a60c55ba">dac_task_handle</a>, NULL);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>}</div>
+</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">/*==================[tasks definition]======================================*/</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="foldopen" id="foldopen00103" data-start="{" data-end="}">
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="_act4___p2_8c.html#afc7a5a7fda0baa1410265370316754f6">  103</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_act4___p2_8c.html#afc7a5a7fda0baa1410265370316754f6">DACTask</a>(<span class="keywordtype">void</span> *pvParameter)</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>{</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    uint8_t i = 0;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordflow">while</span> (1)</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        ulTaskNotifyTake(pdTRUE, portMAX_DELAY);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <a class="code hl_function" href="group___analog___i_o.html#gad3fea4064bfa31ae309d4da542347198">AnalogOutputWrite</a>((uint8_t)<a class="code hl_variable" href="_act4___p2_8c.html#a2dafb8b8179af8e9f4cc4df3f588e42e">ecg</a>[i]);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        i++;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">if</span> (i &gt;= <a class="code hl_define" href="_act4___p2_8c.html#a6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a>)</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            i = 0;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        }</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>}</div>
+</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="foldopen" id="foldopen00120" data-start="{" data-end="}">
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="_act4___p2_8c.html#af8c9493f99ddec6ed1ebb2438817722a">  120</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_act4___p2_8c.html#af8c9493f99ddec6ed1ebb2438817722a">ADCTask</a>(<span class="keywordtype">void</span> *pvParameter)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>{</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    uint16_t lectura_adc = 0;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">char</span> msg_buffer[32];</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keywordflow">while</span> (1)</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        ulTaskNotifyTake(pdTRUE, portMAX_DELAY);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="comment">// Digitaliza la entrada analógica en CH1</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <a class="code hl_function" href="group___analog___i_o.html#gab5ae00a35744f407072230979e593fd9">AnalogInputReadSingle</a>(<a class="code hl_enumvalue" href="group___analog___i_o.html#gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e">CH1</a>, &amp;lectura_adc);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="comment">// Formatea el valor numérico para Serial Oscilloscope</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        sprintf(msg_buffer, <span class="stringliteral">&quot;%d\r\n&quot;</span>, lectura_adc);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <a class="code hl_function" href="group___u_a_r_t.html#ga60db217694ea24ad75fcedda3336a3a8">UartSendString</a>(<a class="code hl_enumvalue" href="group___u_a_r_t.html#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a>, msg_buffer);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    }</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>}</div>
+</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment">/*==================[external functions definition]==========================*/</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span></div>
+<div class="foldopen" id="foldopen00145" data-start="{" data-end="}">
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="_act4___p2_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70">  145</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_act4___p2_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70">app_main</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>{</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="comment">/* 1. Inicialización del puerto serie UART */</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <a class="code hl_struct" href="structserial__config__t.html">serial_config_t</a> uart_cfg = {</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        .port = <a class="code hl_enumvalue" href="group___u_a_r_t.html#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a>,</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        .baud_rate = <a class="code hl_define" href="_act4___p2_8c.html#a615aed21aa6825462b7c17b0c238ffe2">UART_BAUD_RATE</a>,</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        .func_p = NULL,</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        .param_p = NULL</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    };</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <a class="code hl_function" href="group___u_a_r_t.html#ga440f6a03dfd8b310f5fdf42c3bf20c42">UartInit</a>(&amp;uart_cfg);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="comment">/* 2. Configuración de Entrada Analógica (CH1, lectura puntual) */</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <a class="code hl_struct" href="structanalog__input__config__t.html">analog_input_config_t</a> adc_cfg = {</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        .input = <a class="code hl_enumvalue" href="group___analog___i_o.html#gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e">CH1</a>,</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        .mode  = <a class="code hl_enumvalue" href="group___analog___i_o.html#gga51acd785c14953090a3507d4fa8e5939a3b0a8cf9a7759ea8b7c9494eb7fb3dd4">ADC_SINGLE</a></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    };</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <a class="code hl_function" href="group___analog___i_o.html#ga24ce5556aa4682468220b982f151cdfe">AnalogInputInit</a>(&amp;adc_cfg);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="comment">/* 3. Inicialización de Salida Analógica (DAC) */</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <a class="code hl_function" href="group___analog___i_o.html#gab57399e946247652a096a0e2d3a1b69a">AnalogOutputInit</a>();</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="comment">/* 4. Timer A: Muestreo del ADC a 500 Hz (2000 us) */</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <a class="code hl_struct" href="structtimer__config__t.html">timer_config_t</a> timer_adc = {</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        .timer = <a class="code hl_enumvalue" href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598">TIMER_A</a>,</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        .period = <a class="code hl_define" href="_act4___p2_8c.html#aecc44f3ea24b6d6b40968853ec54b4fc">FREC_ADC_US</a>,</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        .func_p = <a class="code hl_function" href="_act4___p2_8c.html#aab9f96832ce1f331bf95840580fec525">FuncTimerADC</a>,</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        .param_p = NULL</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    };</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <a class="code hl_function" href="group___timer.html#gae8617c0d176463a60441464ad26563f6">TimerInit</a>(&amp;timer_adc);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="comment">/* 5. Timer B: Generación del DAC a 250 Hz (4000 us) */</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <a class="code hl_struct" href="structtimer__config__t.html">timer_config_t</a> timer_dac = {</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        .timer = <a class="code hl_enumvalue" href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a7537925211db58591cb5eeb7ebc7f44f">TIMER_B</a>,</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        .period = <a class="code hl_define" href="_act4___p2_8c.html#a49a2dc792284329b7411ac78f78fa037">FREC_DAC_US</a>,</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        .func_p = <a class="code hl_function" href="_act4___p2_8c.html#a7caa7a85a523254e54a49760a066d9d5">FuncTimerDAC</a>,</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        .param_p = NULL</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    };</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <a class="code hl_function" href="group___timer.html#gae8617c0d176463a60441464ad26563f6">TimerInit</a>(&amp;timer_dac);</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="comment">/* 6. Creación de Tareas FreeRTOS */</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    xTaskCreate(<a class="code hl_function" href="_act4___p2_8c.html#af8c9493f99ddec6ed1ebb2438817722a">ADCTask</a>, <span class="stringliteral">&quot;ADCTask&quot;</span>, 2048, NULL, 5, &amp;<a class="code hl_variable" href="_act4___p2_8c.html#a2c75b4f34726e9b7a8dd42ca7fa1d31d">main_task_handle</a>);</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    xTaskCreate(<a class="code hl_function" href="_act4___p2_8c.html#afc7a5a7fda0baa1410265370316754f6">DACTask</a>, <span class="stringliteral">&quot;DACTask&quot;</span>, 2048, NULL, 5, &amp;<a class="code hl_variable" href="_act4___p2_8c.html#a15ff38370c40572c575bc0a6a60c55ba">dac_task_handle</a>);</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="comment">/* 7. Inicio de los Timers */</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <a class="code hl_function" href="group___timer.html#ga0b1779c5b8f91cc83c8bfd127071ea2f">TimerStart</a>(timer_adc.<a class="code hl_variable" href="structtimer__config__t.html#ab83043b8038c5e630f6a2a05ea007e49">timer</a>);</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <a class="code hl_function" href="group___timer.html#ga0b1779c5b8f91cc83c8bfd127071ea2f">TimerStart</a>(timer_dac.<a class="code hl_variable" href="structtimer__config__t.html#ab83043b8038c5e630f6a2a05ea007e49">timer</a>);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>}</div>
+</div>
+<div class="ttc" id="a_act4___p2_8c_html_a15ff38370c40572c575bc0a6a60c55ba"><div class="ttname"><a href="_act4___p2_8c.html#a15ff38370c40572c575bc0a6a60c55ba">dac_task_handle</a></div><div class="ttdeci">TaskHandle_t dac_task_handle</div><div class="ttdoc">Handle de la tarea FreeRTOS encargada de la generación de la señal ECG en el DAC.</div><div class="ttdef"><b>Definition</b> <a href="#l00037">Act4_P2.c:37</a></div></div>
+<div class="ttc" id="a_act4___p2_8c_html_a2c75b4f34726e9b7a8dd42ca7fa1d31d"><div class="ttname"><a href="_act4___p2_8c.html#a2c75b4f34726e9b7a8dd42ca7fa1d31d">main_task_handle</a></div><div class="ttdeci">TaskHandle_t main_task_handle</div><div class="ttdoc">Handle de la tarea FreeRTOS encargada del muestreo ADC y transmisión UART.</div><div class="ttdef"><b>Definition</b> <a href="#l00034">Act4_P2.c:34</a></div></div>
+<div class="ttc" id="a_act4___p2_8c_html_a2dafb8b8179af8e9f4cc4df3f588e42e"><div class="ttname"><a href="_act4___p2_8c.html#a2dafb8b8179af8e9f4cc4df3f588e42e">ecg</a></div><div class="ttdeci">const char ecg[BUFFER_SIZE]</div><div class="ttdoc">Ecualización e información punto a punto de la señal ECG sintética (231 muestras).</div><div class="ttdef"><b>Definition</b> <a href="#l00040">Act4_P2.c:40</a></div></div>
+<div class="ttc" id="a_act4___p2_8c_html_a49a2dc792284329b7411ac78f78fa037"><div class="ttname"><a href="_act4___p2_8c.html#a49a2dc792284329b7411ac78f78fa037">FREC_DAC_US</a></div><div class="ttdeci">#define FREC_DAC_US</div><div class="ttdef"><b>Definition</b> <a href="#l00028">Act4_P2.c:28</a></div></div>
+<div class="ttc" id="a_act4___p2_8c_html_a615aed21aa6825462b7c17b0c238ffe2"><div class="ttname"><a href="_act4___p2_8c.html#a615aed21aa6825462b7c17b0c238ffe2">UART_BAUD_RATE</a></div><div class="ttdeci">#define UART_BAUD_RATE</div><div class="ttdef"><b>Definition</b> <a href="#l00029">Act4_P2.c:29</a></div></div>
+<div class="ttc" id="a_act4___p2_8c_html_a630544a7f0a2cc40d8a7fefab7e2fe70"><div class="ttname"><a href="_act4___p2_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70">app_main</a></div><div class="ttdeci">void app_main(void)</div><div class="ttdoc">Función principal de la aplicación. Configura e inicializa el puerto serie UART, la entrada ADC (CH1)...</div><div class="ttdef"><b>Definition</b> <a href="#l00145">Act4_P2.c:145</a></div></div>
+<div class="ttc" id="a_act4___p2_8c_html_a6b20d41d6252e9871430c242cb1a56e7"><div class="ttname"><a href="_act4___p2_8c.html#a6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a></div><div class="ttdeci">#define BUFFER_SIZE</div><div class="ttdef"><b>Definition</b> <a href="#l00030">Act4_P2.c:30</a></div></div>
+<div class="ttc" id="a_act4___p2_8c_html_a7caa7a85a523254e54a49760a066d9d5"><div class="ttname"><a href="_act4___p2_8c.html#a7caa7a85a523254e54a49760a066d9d5">FuncTimerDAC</a></div><div class="ttdeci">void FuncTimerDAC(void *param)</div><div class="ttdoc">Función de callback invocada periódicamente por el Timer B (250 Hz). Notifica a la tarea DACTask para...</div><div class="ttdef"><b>Definition</b> <a href="#l00095">Act4_P2.c:95</a></div></div>
+<div class="ttc" id="a_act4___p2_8c_html_aab9f96832ce1f331bf95840580fec525"><div class="ttname"><a href="_act4___p2_8c.html#aab9f96832ce1f331bf95840580fec525">FuncTimerADC</a></div><div class="ttdeci">void FuncTimerADC(void *param)</div><div class="ttdoc">Función de callback invocada periódicamente por el Timer A (500 Hz). Notifica a la tarea ADCTask para...</div><div class="ttdef"><b>Definition</b> <a href="#l00089">Act4_P2.c:89</a></div></div>
+<div class="ttc" id="a_act4___p2_8c_html_aecc44f3ea24b6d6b40968853ec54b4fc"><div class="ttname"><a href="_act4___p2_8c.html#aecc44f3ea24b6d6b40968853ec54b4fc">FREC_ADC_US</a></div><div class="ttdeci">#define FREC_ADC_US</div><div class="ttdef"><b>Definition</b> <a href="#l00027">Act4_P2.c:27</a></div></div>
+<div class="ttc" id="a_act4___p2_8c_html_af8c9493f99ddec6ed1ebb2438817722a"><div class="ttname"><a href="_act4___p2_8c.html#af8c9493f99ddec6ed1ebb2438817722a">ADCTask</a></div><div class="ttdeci">void ADCTask(void *pvParameter)</div><div class="ttdoc">Tarea encargada de leer el canal analógico CH1 y enviar el valor formateado por UART.</div><div class="ttdef"><b>Definition</b> <a href="#l00120">Act4_P2.c:120</a></div></div>
+<div class="ttc" id="a_act4___p2_8c_html_afc7a5a7fda0baa1410265370316754f6"><div class="ttname"><a href="_act4___p2_8c.html#afc7a5a7fda0baa1410265370316754f6">DACTask</a></div><div class="ttdeci">void DACTask(void *pvParameter)</div><div class="ttdoc">Tarea encargada de tomar los valores del array de ECG y escribirlos en la salida DAC.</div><div class="ttdef"><b>Definition</b> <a href="#l00103">Act4_P2.c:103</a></div></div>
+<div class="ttc" id="aanalog__io__mcu_8h_html"><div class="ttname"><a href="analog__io__mcu_8h.html">analog_io_mcu.h</a></div></div>
+<div class="ttc" id="agroup___analog___i_o_html_ga24ce5556aa4682468220b982f151cdfe"><div class="ttname"><a href="group___analog___i_o.html#ga24ce5556aa4682468220b982f151cdfe">AnalogInputInit</a></div><div class="ttdeci">void AnalogInputInit(analog_input_config_t *config)</div><div class="ttdoc">Analog input initialization.</div><div class="ttdef"><b>Definition</b> <a href="analog__io__mcu_8c_source.html#l00045">analog_io_mcu.c:45</a></div></div>
+<div class="ttc" id="agroup___analog___i_o_html_gab57399e946247652a096a0e2d3a1b69a"><div class="ttname"><a href="group___analog___i_o.html#gab57399e946247652a096a0e2d3a1b69a">AnalogOutputInit</a></div><div class="ttdeci">void AnalogOutputInit(void)</div><div class="ttdoc">Analog output initialization (DAC).</div><div class="ttdef"><b>Definition</b> <a href="analog__io__mcu_8c_source.html#l00120">analog_io_mcu.c:120</a></div></div>
+<div class="ttc" id="agroup___analog___i_o_html_gab5ae00a35744f407072230979e593fd9"><div class="ttname"><a href="group___analog___i_o.html#gab5ae00a35744f407072230979e593fd9">AnalogInputReadSingle</a></div><div class="ttdeci">void AnalogInputReadSingle(adc_ch_t channel, uint16_t *value)</div><div class="ttdoc">Read single channel.</div><div class="ttdef"><b>Definition</b> <a href="analog__io__mcu_8c_source.html#l00130">analog_io_mcu.c:130</a></div></div>
+<div class="ttc" id="agroup___analog___i_o_html_gad3fea4064bfa31ae309d4da542347198"><div class="ttname"><a href="group___analog___i_o.html#gad3fea4064bfa31ae309d4da542347198">AnalogOutputWrite</a></div><div class="ttdeci">void AnalogOutputWrite(uint8_t value)</div><div class="ttdoc">Digital-to-Analog convert.</div><div class="ttdef"><b>Definition</b> <a href="analog__io__mcu_8c_source.html#l00159">analog_io_mcu.c:159</a></div></div>
+<div class="ttc" id="agroup___analog___i_o_html_gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e"><div class="ttname"><a href="group___analog___i_o.html#gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e">CH1</a></div><div class="ttdeci">@ CH1</div><div class="ttdef"><b>Definition</b> <a href="analog__io__mcu_8h_source.html#l00032">analog_io_mcu.h:32</a></div></div>
+<div class="ttc" id="agroup___analog___i_o_html_gga51acd785c14953090a3507d4fa8e5939a3b0a8cf9a7759ea8b7c9494eb7fb3dd4"><div class="ttname"><a href="group___analog___i_o.html#gga51acd785c14953090a3507d4fa8e5939a3b0a8cf9a7759ea8b7c9494eb7fb3dd4">ADC_SINGLE</a></div><div class="ttdeci">@ ADC_SINGLE</div><div class="ttdef"><b>Definition</b> <a href="analog__io__mcu_8h_source.html#l00038">analog_io_mcu.h:38</a></div></div>
+<div class="ttc" id="agroup___timer_html_ga0b1779c5b8f91cc83c8bfd127071ea2f"><div class="ttname"><a href="group___timer.html#ga0b1779c5b8f91cc83c8bfd127071ea2f">TimerStart</a></div><div class="ttdeci">void TimerStart(timer_mcu_t timer)</div><div class="ttdoc">Start timer count.</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8c_source.html#l00116">timer_mcu.c:116</a></div></div>
+<div class="ttc" id="agroup___timer_html_gae8617c0d176463a60441464ad26563f6"><div class="ttname"><a href="group___timer.html#gae8617c0d176463a60441464ad26563f6">TimerInit</a></div><div class="ttdeci">void TimerInit(timer_config_t *timer_ini)</div><div class="ttdoc">Timer initialization.</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8c_source.html#l00067">timer_mcu.c:67</a></div></div>
+<div class="ttc" id="agroup___timer_html_ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598"><div class="ttname"><a href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598">TIMER_A</a></div><div class="ttdeci">@ TIMER_A</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8h_source.html#l00032">timer_mcu.h:32</a></div></div>
+<div class="ttc" id="agroup___timer_html_ggacc4e64394d03a6e790f8e52c674534d9a7537925211db58591cb5eeb7ebc7f44f"><div class="ttname"><a href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a7537925211db58591cb5eeb7ebc7f44f">TIMER_B</a></div><div class="ttdeci">@ TIMER_B</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8h_source.html#l00033">timer_mcu.h:33</a></div></div>
+<div class="ttc" id="agroup___u_a_r_t_html_ga440f6a03dfd8b310f5fdf42c3bf20c42"><div class="ttname"><a href="group___u_a_r_t.html#ga440f6a03dfd8b310f5fdf42c3bf20c42">UartInit</a></div><div class="ttdeci">void UartInit(serial_config_t *port_config)</div><div class="ttdoc">Serial port initialization.</div><div class="ttdef"><b>Definition</b> <a href="uart__mcu_8c_source.html#l00107">uart_mcu.c:107</a></div></div>
+<div class="ttc" id="agroup___u_a_r_t_html_ga60db217694ea24ad75fcedda3336a3a8"><div class="ttname"><a href="group___u_a_r_t.html#ga60db217694ea24ad75fcedda3336a3a8">UartSendString</a></div><div class="ttdeci">void UartSendString(uart_mcu_port_t port, const char *msg)</div><div class="ttdoc">Send a String trough serial port.</div><div class="ttdef"><b>Definition</b> <a href="uart__mcu_8c_source.html#l00193">uart_mcu.c:193</a></div></div>
+<div class="ttc" id="agroup___u_a_r_t_html_gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056"><div class="ttname"><a href="group___u_a_r_t.html#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a></div><div class="ttdeci">@ UART_PC</div><div class="ttdef"><b>Definition</b> <a href="uart__mcu_8h_source.html#l00032">uart_mcu.h:32</a></div></div>
+<div class="ttc" id="astructanalog__input__config__t_html"><div class="ttname"><a href="structanalog__input__config__t.html">analog_input_config_t</a></div><div class="ttdoc">Analog inputs config structure.</div><div class="ttdef"><b>Definition</b> <a href="analog__io__mcu_8h_source.html#l00048">analog_io_mcu.h:48</a></div></div>
+<div class="ttc" id="astructserial__config__t_html"><div class="ttname"><a href="structserial__config__t.html">serial_config_t</a></div><div class="ttdoc">Serial port configuration struct.</div><div class="ttdef"><b>Definition</b> <a href="uart__mcu_8h_source.html#l00038">uart_mcu.h:38</a></div></div>
+<div class="ttc" id="astructtimer__config__t_html"><div class="ttname"><a href="structtimer__config__t.html">timer_config_t</a></div><div class="ttdoc">Timer configuration struct.</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8h_source.html#l00039">timer_mcu.h:39</a></div></div>
+<div class="ttc" id="astructtimer__config__t_html_ab83043b8038c5e630f6a2a05ea007e49"><div class="ttname"><a href="structtimer__config__t.html#ab83043b8038c5e630f6a2a05ea007e49">timer_config_t::timer</a></div><div class="ttdeci">timer_mcu_t timer</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8h_source.html#l00040">timer_mcu.h:40</a></div></div>
+<div class="ttc" id="atimer__mcu_8h_html"><div class="ttname"><a href="timer__mcu_8h.html">timer_mcu.h</a></div></div>
+<div class="ttc" id="auart__mcu_8h_html"><div class="ttname"><a href="uart__mcu_8h.html">uart_mcu.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_d9edf6c004b4a7ff14fe9ae7a92214ee.html">firmware</a></li><li class="navelem"><a href="dir_429d80758da54da73083af4edd40d0b3.html">projects</a></li><li class="navelem"><a href="dir_4baf201bb33e387863b2a928d1e397f0.html">Act4_Proyecto2</a></li><li class="navelem"><a href="dir_784e696b4a947da772d244d3a7e75abe.html">main</a></li><li class="navelem"><a href="_act4___p2_8c.html">Act4_P2.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>
