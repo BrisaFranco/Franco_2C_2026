@@ -75,7 +75,7 @@ void AnalogOutputInit(void);
  * @brief Read single channel.
  * 
  * @param channel Channel selected
- * @param value Read variable pointer (in mV)
+ * @param value Read variable pointer (raw ADC counts)
  * @return null
  */
 void AnalogInputReadSingle(adc_ch_t channel, uint16_t *value);

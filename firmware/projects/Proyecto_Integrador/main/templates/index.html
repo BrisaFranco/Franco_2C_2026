@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Control Ocular EOG</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #111111;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: -0.3px;
+        }
+
+        /* Recuadro de Calibración */
+        .card {
+            border: 1px solid #dcdcdc;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 24px;
+            background-color: #ffffff;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #222222;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+
+        #calib-log {
+            font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.85rem;
+            height: 120px;
+            overflow-y: auto;
+            color: #333333;
+            line-height: 1.5;
+            background-color: #fafafa;
+            border: 1px solid #eee;
+            padding: 10px;
+            border-radius: 3px;
+        }
+
+        /* Área Interactiva para el Cursor (Lienzo en Blanco) */
+        #playground {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            border: 1px solid #dcdcdc;
+            border-radius: 4px;
+            overflow: hidden;
+            display: block;
+            background-color: #ffffff;
+        }
+
+        /* Cursor en forma de flecha */
+        #virtual-cursor {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-bottom: 18px solid #000000;
+            transform: rotate(-35deg);
+            pointer-events: none;
+            transition: top 0.1s linear, left 0.1s linear;
+            top: 50%;
+            left: 50%;
+            z-index: 10;
+        }
+
+        /* Control de prueba para activar el clic */
+        .demo-panel {
+            margin-top: 24px;
+            padding: 15px;
+            border: 1px dashed #cccccc;
+            border-radius: 4px;
+            background-color: #fafafa;
+        }
+
+        .demo-btn {
+            background-color: #ffffff;
+            border: 1px solid #000000;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .demo-btn:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Sistema de Control Ocular EOG</h1>
+
+        <!-- Recuadro de Calibración -->
+        <div class="card">
+            <div class="card-title">Calibración</div>
+            <div id="calib-log">Esperando inicio de calibración...</div>
+        </div>
+
+        <!-- Área del Mouse (Lienzo en Blanco) -->
+        <div id="playground">
+            <div id="virtual-cursor"></div>
+        </div>
+
+        <!-- Botón para probar la acción de pestañeo -->
+        <div class="demo-panel">
+            <button class="demo-btn" onclick="ejecutarClic()">Simular Pestañeo / Clic</button>
+        </div>
+    </div>
+
+    <script>
+        const calibLog = document.getElementById('calib-log');
+        const playground = document.getElementById('playground');
+        const cursor = document.getElementById('virtual-cursor');
+
+        let cursorX = 325;
+        let cursorY = 190; // Inicialmente centrado en el medio del playground
+
+        function addLog(message) {
+            const line = document.createElement('div');
+            line.textContent = message;
+            calibLog.appendChild(line);
+            calibLog.scrollTop = calibLog.scrollHeight;
+        }
+
+        // Mover el cursor con las muestras del canal EOG
+        function moverCursorEOG(pos) {
+            const paso = 15;
+            if (pos === 30 || pos === 10) {
+                cursorY -= paso; // Mover Arriba
+            } else if (pos === -30 || pos === -10) {
+                cursorY += paso; // Mover Abajo
+            }
+
+            cursorY = Math.max(10, Math.min(360, cursorY));
+            cursor.style.top = cursorY + 'px';
+            cursor.style.left = cursorX + 'px';
+
+            if (pos === 100) {
+                ejecutarClic();
+            }
+        }
+
+        function ejecutarClic() {
+            // Al detectar el pestañeo redirecciona directamente, sin evaluar posición de botón
+            window.location.href = "/vista2";
+        }
+    </script>
+</body>
+</html>

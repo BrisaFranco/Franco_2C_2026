@@ -41,6 +41,12 @@
         },
         {
             "path": "projects/Act4_Proyecto2"
+        },
+        {
+            "path": "projects/Proyecto_Integrador"
+        },
+        {
+            "path": "projects/ej_bluetooth_mouse_kb"
         }
     ],
     "settings": {

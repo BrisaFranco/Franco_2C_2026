@@ -128,20 +128,29 @@ void AnalogOutputInit(void){
 }
 
 void AnalogInputReadSingle(adc_ch_t channel, uint16_t *value){
-    switch(channel){
+	int raw_value;
+	adc_channel_t adc_channel;
+
+	switch(channel){
 		case CH0:
-			adc_oneshot_read(adc1_single, ADC_CHANNEL_0, (int*)value);
+			adc_channel = ADC_CHANNEL_0;
 		break;
 		case CH1:
-			adc_oneshot_read(adc1_single, ADC_CHANNEL_1, (int*)value);
+			adc_channel = ADC_CHANNEL_1;
 		break;
 		case CH2:
-			adc_oneshot_read(adc1_single, ADC_CHANNEL_2, (int*)value);
+			adc_channel = ADC_CHANNEL_2;
 		break;
 		case CH3:
-			adc_oneshot_read(adc1_single, ADC_CHANNEL_3, (int*)value);
+			adc_channel = ADC_CHANNEL_3;
 		break;
+		default:
+			ESP_ERROR_CHECK(ESP_ERR_INVALID_ARG);
+			return;
 	}
+
+	ESP_ERROR_CHECK(adc_oneshot_read(adc1_single, adc_channel, &raw_value));
+	*value = (uint16_t)raw_value;
 }
 
 void AnalogStartContinuous(adc_ch_t channel){
