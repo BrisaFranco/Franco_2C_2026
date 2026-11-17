@@ -55,7 +55,7 @@ digital_io_t gpio_list[GPIO_QTY] = {
 	{GPIO_NUM_23, GPIO_MODE_DISABLE, GPIO_PULLUP_ONLY, false}, /* Configuration GPIO23*/
 };
 gpio_flex_glitch_filter_config_t filter_config = {
-	.clk_src = GLITCH_FILTER_CLK_SRC_DEFAULT,
+	.clk_src = GPIO_GLITCH_FILTER_CLK_SRC_DEFAULT,
 	.window_width_ns = 700,
 	.window_thres_ns = 600,
 };

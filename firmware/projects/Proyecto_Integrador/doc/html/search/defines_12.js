@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['sample_5ffreq_0',['SAMPLE_FREQ',['../proyecto__integrador_8c.html#a9401e43a8c86acafb31c8e2709baefa1',1,'proyecto_integrador.c']]],
+  ['sample_5fperiod_5fus_1',['SAMPLE_PERIOD_US',['../proyecto__integrador_8c.html#af0386a77b9d1b69125d86b3d2de6b0fd',1,'proyecto_integrador.c']]],
+  ['scan_5frsp_5fconfig_5fflag_2',['SCAN_RSP_CONFIG_FLAG',['../ble__mcu_8c.html#ad92fd6350531e23c955c71626296406c',1,'ble_mcu.c']]],
+  ['sec_3',['SEC',['../delay__mcu_8c.html#a8bc5e463885769f21393880576c25f6b',1,'delay_mcu.c']]],
+  ['sensitivity_4',['SENSITIVITY',['../_a_d_x_l335_8c.html#aa6ac8087ed34271031291f59014fe310',1,'ADXL335.c']]],
+  ['servo_5ffreq_5',['SERVO_FREQ',['../servo__sg90_8c.html#a7d9c36e285f4f83cc8d30e9ccfe403af',1,'servo_sg90.c']]],
+  ['sleep_5fin_6',['SLEEP_IN',['../ili9341_8c.html#ae9a82b50c8748942c64e90f7f8629669',1,'ili9341.c']]],
+  ['sleep_5fout_7',['SLEEP_OUT',['../ili9341_8c.html#a50d64363b3ecae17415811bf896e2930',1,'ili9341.c']]],
+  ['slot_5fgreen_5fled_8',['SLOT_GREEN_LED',['../max3010x_8c.html#a65bf1c00b78b1a80039b48bc1122a9c2',1,'max3010x.c']]],
+  ['slot_5fgreen_5fpilot_9',['SLOT_GREEN_PILOT',['../max3010x_8c.html#a0cd1fb870aefe86ed308ddbba9e2dfa2',1,'max3010x.c']]],
+  ['slot_5fir_5fled_10',['SLOT_IR_LED',['../max3010x_8c.html#af6bfe9c1163c6aa21d3a5abb679ca1e6',1,'max3010x.c']]],
+  ['slot_5fir_5fpilot_11',['SLOT_IR_PILOT',['../max3010x_8c.html#aac6a85464356c2dbf525cc0122135f3c',1,'max3010x.c']]],
+  ['slot_5fnone_12',['SLOT_NONE',['../max3010x_8c.html#add769f6feb7f517f0c8b1e642573e6a8',1,'max3010x.c']]],
+  ['slot_5fnone_5fpilot_13',['SLOT_NONE_PILOT',['../max3010x_8c.html#a3fa1c6b6b1157f9a5d6026282bd85a21',1,'max3010x.c']]],
+  ['slot_5fred_5fled_14',['SLOT_RED_LED',['../max3010x_8c.html#ac36eecf00d777ec234518b339a7eaefe',1,'max3010x.c']]],
+  ['slot_5fred_5fpilot_15',['SLOT_RED_PILOT',['../max3010x_8c.html#afc66e4bc05cb8b8a7f70c94e61bf5d92',1,'max3010x.c']]],
+  ['spi_5fbr_16',['SPI_BR',['../ili9341_8c.html#a5a96556b55f3bf5350e836859a37280d',1,'SPI_BR:&#160;ili9341.c'],['../_m_f_r_c522_8c.html#a5a96556b55f3bf5350e836859a37280d',1,'SPI_BR:&#160;MFRC522.c']]],
+  ['spp_5fdata_5fmax_5flen_17',['SPP_DATA_MAX_LEN',['../ble__mcu_8c.html#a10581b03212a8f728d1abfb336b9c0df',1,'ble_mcu.c']]],
+  ['spp_5fprofile_5fapp_5fidx_18',['SPP_PROFILE_APP_IDX',['../ble__mcu_8c.html#a586acfe75065c5989d1b3728f7096aa6',1,'ble_mcu.c']]],
+  ['spp_5fprofile_5fnum_19',['SPP_PROFILE_NUM',['../ble__mcu_8c.html#adf1330d5851edcffbf764521c031ecab',1,'ble_mcu.c']]],
+  ['spp_5fsvc_5finst_5fid_20',['SPP_SVC_INST_ID',['../ble__mcu_8c.html#a12513bc359ab601241128c2b3be4ce95',1,'ble_mcu.c']]],
+  ['storage_5fsize_21',['STORAGE_SIZE',['../max3010x_8h.html#a8d6f782ffe53d87f0fd0327d4b09352c',1,'max3010x.h']]],
+  ['stringify_22',['STRINGIFY',['../_c_make_c_compiler_id_8c.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY:&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY:&#160;CMakeCXXCompilerId.cpp']]],
+  ['stringify_5fhelper_23',['STRINGIFY_HELPER',['../_c_make_c_compiler_id_8c.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'STRINGIFY_HELPER:&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'STRINGIFY_HELPER:&#160;CMakeCXXCompilerId.cpp']]]
+];

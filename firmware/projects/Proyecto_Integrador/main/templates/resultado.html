@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ nombre }} - Confirmación EOG</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { min-height: 100vh; background: linear-gradient(160deg, #0f2b5b 0%, #1b6ca8 55%, #2ec4b6 100%); background-attachment: fixed; color: #fff; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; }
+        .container { width: 100%; max-width: 650px; }
+        h1 { color: #fff; font-size: 1.6rem; font-weight: 700; margin-bottom: 24px; letter-spacing: -0.3px; }
+        .card-success { border-radius: 14px; background: rgba(11, 22, 44, 0.92); border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: 0 12px 32px rgba(4, 12, 30, 0.55); text-align: center; overflow: hidden; }
+        .color-banner { background: {{ color }}; color: #fff; font-size: 2rem; font-weight: 700; letter-spacing: 3px; padding: 50px 20px; }
+        .card-body { padding: 32px 20px; }
+        .card-body p { font-size: 1rem; color: #e2e8f0; margin-bottom: 28px; line-height: 1.5; }
+        .btn-back { background: #1b6ca8; color: #fff; border: 2px solid #38bdf8; padding: 14px 28px; font-size: 0.95rem; font-weight: 600;
+            border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.15s, transform 0.15s; }
+        .btn-back:hover { background: #2ec4b6; color: #0b162c; transform: scale(1.03); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema de Control Ocular EOG</h1>
+        <div class="card-success">
+            <div class="color-banner">{{ nombre }}</div>
+            <div class="card-body">
+                <p>Color seleccionado: <strong>{{ nombre }}</strong>.<br>El clic se hizo correctamente.</p>
+                <a href="/" class="btn-back">Volver al inicio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

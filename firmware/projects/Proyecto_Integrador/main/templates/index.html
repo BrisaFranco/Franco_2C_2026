@@ -5,177 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Control Ocular EOG</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { min-height: 100vh; color: #fff; padding: 40px 20px 120px; display: flex; flex-direction: column; align-items: center;
+            background: linear-gradient(160deg, #0f2b5b 0%, #1b6ca8 55%, #2ec4b6 100%); background-attachment: fixed; }
+        .container { width: 100%; max-width: 650px; position: relative; z-index: 1; }
+        h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.3px; }
+        .subtitle { font-size: 0.95rem; opacity: 0.85; margin-bottom: 24px; }
 
-        body {
-            background-color: #ffffff;
-            color: #111111;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        #playground { position: relative; width: 100%; height: 380px; border-radius: 14px; overflow: hidden;
+            background: rgba(11, 22, 44, 0.92); border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: 0 12px 32px rgba(4, 12, 30, 0.55); }
 
-        .container {
-            width: 100%;
-            max-width: 650px;
-        }
+        .color-btn { position: absolute; left: 50%; transform: translateX(-50%); width: 60%; height: 80px;
+            border: 4px solid transparent; border-radius: 12px; color: #fff; font-size: 1.3rem; font-weight: 700;
+            letter-spacing: 2px; display: flex; align-items: center; justify-content: center; user-select: none; text-decoration: none; cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s; }
+        #btn-rojo  { top: 20px;    background: linear-gradient(135deg, #ff5a5f, #c81d25); }
+        #btn-verde { bottom: 20px; background: linear-gradient(135deg, #3ddc84, #1b8a4b); }
+        .color-btn.hover { border-color: #fff; transform: translateX(-50%) scale(1.04);
+            box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.45), 0 8px 24px rgba(0, 0, 0, 0.5); }
 
-        h1 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 24px;
-            letter-spacing: -0.3px;
-        }
+        #estado { text-align: center; font-size: 0.9rem; color: #cbd5e1; position: absolute; left: 0; right: 0; top: 50%;
+            transform: translateY(-50%); pointer-events: none; }
 
-        /* Recuadro de Calibración */
-        .card {
-            border: 1px solid #dcdcdc;
-            border-radius: 4px;
-            padding: 20px;
-            margin-bottom: 24px;
-            background-color: #ffffff;
-        }
-
-        .card-title {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #222222;
-            border-bottom: 1px solid #f0f0f0;
-            padding-bottom: 8px;
-        }
-
-        #calib-log {
-            font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
-            font-size: 0.85rem;
-            height: 120px;
-            overflow-y: auto;
-            color: #333333;
-            line-height: 1.5;
-            background-color: #fafafa;
-            border: 1px solid #eee;
-            padding: 10px;
-            border-radius: 3px;
-        }
-
-        /* Área Interactiva para el Cursor (Lienzo en Blanco) */
-        #playground {
-            position: relative;
-            width: 100%;
-            height: 380px;
-            border: 1px solid #dcdcdc;
-            border-radius: 4px;
-            overflow: hidden;
-            display: block;
-            background-color: #ffffff;
-        }
-
-        /* Cursor en forma de flecha */
-        #virtual-cursor {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-left: 7px solid transparent;
-            border-right: 7px solid transparent;
-            border-bottom: 18px solid #000000;
-            transform: rotate(-35deg);
-            pointer-events: none;
-            transition: top 0.1s linear, left 0.1s linear;
-            top: 50%;
-            left: 50%;
-            z-index: 10;
-        }
-
-        /* Control de prueba para activar el clic */
-        .demo-panel {
-            margin-top: 24px;
-            padding: 15px;
-            border: 1px dashed #cccccc;
-            border-radius: 4px;
-            background-color: #fafafa;
-        }
-
-        .demo-btn {
-            background-color: #ffffff;
-            border: 1px solid #000000;
-            padding: 8px 16px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .demo-btn:hover {
-            background-color: #000000;
-            color: #ffffff;
-        }
+        /* Ondas decorativas */
+        .waves { position: fixed; left: 0; right: 0; bottom: 0; height: 110px; z-index: 0; pointer-events: none; }
+        .waves svg { width: 100%; height: 100%; display: block; }
     </style>
 </head>
 <body>
-
     <div class="container">
         <h1>Sistema de Control Ocular EOG</h1>
+        <p class="subtitle">Mové la mirada para elegir un color y pestañeá para confirmar.</p>
 
-        <!-- Recuadro de Calibración -->
-        <div class="card">
-            <div class="card-title">Calibración</div>
-            <div id="calib-log">Esperando inicio de calibración...</div>
-        </div>
-
-        <!-- Área del Mouse (Lienzo en Blanco) -->
         <div id="playground">
-            <div id="virtual-cursor"></div>
-        </div>
-
-        <!-- Botón para probar la acción de pestañeo -->
-        <div class="demo-panel">
-            <button class="demo-btn" onclick="ejecutarClic()">Simular Pestañeo / Clic</button>
+            <a class="color-btn" id="btn-rojo" href="/rojo" data-destino="/rojo">ROJO</a>
+            <div id="estado"></div>
+            <a class="color-btn" id="btn-verde" href="/verde" data-destino="/verde">VERDE</a>
         </div>
     </div>
 
+    <div class="waves">
+        <svg viewBox="0 0 1440 110" preserveAspectRatio="none">
+            <path fill="rgba(255,255,255,0.18)" d="M0,50 C240,100 480,0 720,40 C960,80 1200,10 1440,50 L1440,110 L0,110 Z"/>
+            <path fill="rgba(255,255,255,0.28)" d="M0,70 C260,20 500,100 760,65 C1020,30 1240,90 1440,60 L1440,110 L0,110 Z"/>
+        </svg>
+    </div>
+
     <script>
-        const calibLog = document.getElementById('calib-log');
         const playground = document.getElementById('playground');
-        const cursor = document.getElementById('virtual-cursor');
+        const estado = document.getElementById('estado');
+        const botones = document.querySelectorAll('.color-btn');
 
-        let cursorX = 325;
-        let cursorY = 190; // Inicialmente centrado en el medio del playground
+        // Posición lógica del cursor (ya no se dibuja la flecha)
+        let cursorY = 190; // centro del playground
 
-        function addLog(message) {
-            const line = document.createElement('div');
-            line.textContent = message;
-            calibLog.appendChild(line);
-            calibLog.scrollTop = calibLog.scrollHeight;
+        function mostrarEstado(msg) {
+            estado.textContent = msg;
+            setTimeout(() => { if (estado.textContent === msg) estado.textContent = ''; }, 1500);
+        }
+
+        // Devuelve el botón que está bajo la posición del cursor (o null)
+        function botonBajoCursor() {
+            const p = playground.getBoundingClientRect();
+            const x = p.left + p.width / 2;
+            const y = p.top + cursorY;
+            for (const b of botones) {
+                const r = b.getBoundingClientRect();
+                if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) return b;
+            }
+            return null;
+        }
+
+        function resaltarBoton() {
+            const activo = botonBajoCursor();
+            botones.forEach(b => b.classList.toggle('hover', b === activo));
         }
 
         // Mover el cursor con las muestras del canal EOG
         function moverCursorEOG(pos) {
             const paso = 15;
             if (pos === 30 || pos === 10) {
-                cursorY -= paso; // Mover Arriba
+                cursorY -= paso;
             } else if (pos === -30 || pos === -10) {
-                cursorY += paso; // Mover Abajo
+                cursorY += paso;
             }
-
             cursorY = Math.max(10, Math.min(360, cursorY));
-            cursor.style.top = cursorY + 'px';
-            cursor.style.left = cursorX + 'px';
+            resaltarBoton();
 
             if (pos === 100) {
                 ejecutarClic();
             }
         }
 
+        // El pestañeo hace clic solo si el cursor está sobre un botón
         function ejecutarClic() {
-            // Al detectar el pestañeo redirecciona directamente, sin evaluar posición de botón
-            window.location.href = "/vista2";
+            const b = botonBajoCursor();
+            if (b) {
+                window.location.href = b.dataset.destino;
+            } else {
+                mostrarEstado('Ningún botón seleccionado');
+            }
         }
+
+        // Evita que el clic de rueda (button === 1) active la ruedita de desplazamiento
+        document.addEventListener('mousedown', (e) => {
+            if (e.button === 1) {
+                e.preventDefault();
+                const enlace = e.target.closest('a.color-btn');
+                if (enlace) {
+                    window.location.href = enlace.href;
+                }
+            }
+        });
     </script>
 </body>
 </html>

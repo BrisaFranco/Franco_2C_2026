@@ -18,7 +18,10 @@
 
 #include "esp_log.h"
 
+#if __has_include("esp_bt.h")
 #include "esp_bt.h"
+#endif
+
 #include "esp_gap_ble_api.h"
 #include "esp_gatts_api.h"
 #include "esp_bt_defs.h"
@@ -1373,7 +1376,9 @@ void BleHidInit(char * hid_dev_name){
         ret = nvs_flash_init();
     }
     ESP_ERROR_CHECK( ret );
+    #if CONFIG_BT_CLASSIC_ENABLED
     ESP_ERROR_CHECK(esp_bt_controller_mem_release(ESP_BT_MODE_CLASSIC_BT));
+    #endif
     esp_bt_controller_config_t bt_cfg = BT_CONTROLLER_INIT_CONFIG_DEFAULT();
     ret = esp_bt_controller_init(&bt_cfg);
     if (ret) {

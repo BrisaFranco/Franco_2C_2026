@@ -61,7 +61,7 @@ static void uart_pc_event_task(void *pvParameters){
                     break;
                 case UART_PATTERN_DET:
                     break;
-                case UART_WAKEUP:
+                case UART_WAKEUP_DET:
                     break;
                 case UART_EVENT_MAX:
                     break;
@@ -94,7 +94,7 @@ static void uart_conn_event_task(void *pvParameters){
                     break;
                 case UART_PATTERN_DET:
                     break;
-                case UART_WAKEUP:
+                case UART_WAKEUP_DET:
                     break;
                 case UART_EVENT_MAX:
                     break;
